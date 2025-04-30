@@ -9,22 +9,32 @@ import SwiftUI
 
 struct RosterView: View {
     
-    
+    @StateObject var viewModel = RosterViewModel()
     
     let columns: [GridItem] = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()),]
     
     var body: some View {
-        NavigationView {
-            ScrollView {
-                LazyVGrid(columns: columns) {
-                    ForEach(RosterData.roster) { player in
-                        PlayerView(roster: player)
+        ZStack {
+            NavigationView {
+                ScrollView {
+                    LazyVGrid(columns: columns) {
+                        ForEach(RosterData.roster) { player in
+                            PlayerView(roster: player)
+                                .preferredColorScheme(.dark)
+                                .onTapGesture {
+                                    viewModel.selectedPlayer = player
+                                }
+                        }
+                        .padding()
                     }
-                    .padding()
+                }
+                .navigationTitle("🔥Miami Heat Roster🏀")
+                .sheet(isPresented: $viewModel.isShowingPlayerDetailView) {
+                    PlayerDetailsSheet(roster: viewModel.selectedPlayer!, isShowingPlayerDetailsView: $viewModel.isShowingPlayerDetailView)
                 }
             }
-            .navigationTitle("🔥Miami Heat Roster🏀")
-        }
+        } .background(.black)
+        
     }
 }
 

@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct PlayerDetailsSheet: View {
+    
+    var roster : Roster
+    @Binding var isShowingPlayerDetailsView : Bool
+    
     var body: some View {
         VStack {
             HStack{
                 Spacer()
                 Button {
-                    print("X pressed")
+                    isShowingPlayerDetailsView = false
                 } label: {
                     Image(systemName: "xmark")
                         .frame(width: 44, height: 44)
@@ -24,11 +28,11 @@ struct PlayerDetailsSheet: View {
             .padding()
             
             Spacer()
-            Image("Dru-Smith")
+            Image(roster.playerImage)
                 .resizable()
                 .frame(width: 300, height: 380)
                 .padding()
-            Text("Dru Smith is a guard who wears number 12 and went to school at the University of Missouri. Hes played 3 seasons and made $508,891 in 2025")
+            Text("\(roster.name) is a \(roster.position) who wears number \(roster.number) and went to school at \(roster.school). Hes played \(roster.seasonsPlayed) seasons and made $\(roster.yearlySalary) in 2025")
                 .font(.headline)
                 .fontWeight(.semibold)
             Spacer()
@@ -48,6 +52,6 @@ struct PlayerDetailsSheet: View {
     }
 }
 
-#Preview {
-    PlayerDetailsSheet()
-}
+//#Preview {
+//    PlayerDetailsSheet(roster: RosterData.roster , isShowingPlayerDetailsView: .constant(false))
+//}

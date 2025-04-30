@@ -27,7 +27,7 @@ struct RosterData {
                number: 13,
                school: "University of Kentucky",
                seasonsPlayed: 8,
-               yearlySalary: "35.8 Million"),
+               yearlySalary: "34,850,060"),
         
         Roster(name: "Kyle Anderson",
                playerImage: "Kyle-Anderson",
@@ -35,7 +35,7 @@ struct RosterData {
                number: 20,
                school: "UCLA",
                seasonsPlayed: 12,
-               yearlySalary: "8,780,488 Million"),
+               yearlySalary: "8,780,488"),
         
         Roster(name: "Alec Burks",
                playerImage: "Alec-Burks",
@@ -43,7 +43,7 @@ struct RosterData {
                number: 18,
                school: "University of Colorado",
                seasonsPlayed: 14,
-               yearlySalary: "3,303,771 Million"),
+               yearlySalary: "3,303,771"),
         
         Roster(name: "Josh Christopher",
                playerImage: "Josh-Christopher",
