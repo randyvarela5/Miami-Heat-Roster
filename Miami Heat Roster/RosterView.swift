@@ -27,14 +27,25 @@ struct RosterView: View {
                         }
                         .padding()
                     }
+                    Button {
+                        print("Salary distribution tapped")
+                    } label: {
+                        Text("View salary distribution")
+                            .frame(width: 260, height: 50)
+                            .background(.red)
+                            .foregroundColor(.white)
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .cornerRadius(10)
+                    }
                 }
+                
                 .navigationTitle("🔥Miami Heat Roster🏀")
                 .sheet(isPresented: $viewModel.isShowingPlayerDetailView) {
                     PlayerDetailsSheet(roster: viewModel.selectedPlayer!, isShowingPlayerDetailsView: $viewModel.isShowingPlayerDetailView)
                 }
             }
         } .background(.black)
-        
     }
 }
 
@@ -56,7 +67,6 @@ struct PlayerView: View {
                 .fontWeight(.bold)
                 .scaledToFit()
                 .minimumScaleFactor(0.5)
-            
         }
     }
 }

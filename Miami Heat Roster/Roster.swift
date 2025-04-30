@@ -165,5 +165,4 @@ struct RosterData {
                seasonsPlayed: 12,
                yearlySalary: "27,250,001"),
     ]
-    
 }

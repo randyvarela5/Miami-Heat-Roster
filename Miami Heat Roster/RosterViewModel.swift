@@ -13,6 +13,5 @@ class RosterViewModel: ObservableObject {
             isShowingPlayerDetailView = true
         }
     }
-    
     @Published var isShowingPlayerDetailView: Bool = false
 }
