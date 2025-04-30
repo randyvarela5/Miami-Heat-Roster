@@ -6,7 +6,7 @@ like navigation, list views, and data-driven UI
 
 ## 📸 Screenshots
 
-![home screen](default view.png) ![player detail screen](detail view.png)
+![default view](defaultview.png) ![detail view](detailview.png)
 
 ## 🚀 Features
 
