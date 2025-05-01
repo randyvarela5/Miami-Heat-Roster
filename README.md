@@ -6,7 +6,7 @@ like navigation, list views, and data-driven UI
 
 ## 📸 Screenshots
 
-![default view](defaultview.png) ![detail view](detailview.png)
+![default view](defaultview.png) ![detail view](detailview.png) ![chart view](chartview.png)
 
 ## 🚀 Features
 
