@@ -48,6 +48,7 @@ struct PlayerDetailsSheet: View {
                     .cornerRadius(10)
             }
         }
+        .background(.black)
     }
 }
 

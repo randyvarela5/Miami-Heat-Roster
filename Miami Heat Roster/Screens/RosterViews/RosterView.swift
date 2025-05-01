@@ -10,6 +10,7 @@ import SwiftUI
 struct RosterView: View {
     
     @StateObject var viewModel = RosterViewModel()
+    @StateObject var salaryChartViewModel = SalaryChartSheetModel()
     
     let columns: [GridItem] = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()),]
     
@@ -29,17 +30,14 @@ struct RosterView: View {
                     }
                     Button {
                         print("Salary distribution tapped")
+                        salaryChartViewModel.isShowSalaryChartSheet = true
                     } label: {
-                        Text("View salary distribution")
-                            .frame(width: 260, height: 50)
-                            .background(.red)
-                            .foregroundColor(.white)
-                            .font(.title2)
-                            .fontWeight(.bold)
-                            .cornerRadius(10)
+                        ButtonConfig(buttonText: "View salary distribution")
+                    }
+                    .sheet(isPresented: $salaryChartViewModel.isShowSalaryChartSheet) {
+                        SalaryChartSheet(isShowingChartView: $salaryChartViewModel.isShowSalaryChartSheet)
                     }
                 }
-                
                 .navigationTitle("🔥Miami Heat Roster🏀")
                 .sheet(isPresented: $viewModel.isShowingPlayerDetailView) {
                     PlayerDetailsSheet(roster: viewModel.selectedPlayer!, isShowingPlayerDetailsView: $viewModel.isShowingPlayerDetailView)
@@ -68,5 +66,20 @@ struct PlayerView: View {
                 .scaledToFit()
                 .minimumScaleFactor(0.5)
         }
+    }
+}
+
+struct ButtonConfig: View {
+    
+    var buttonText: String
+    
+    var body: some View {
+        Text(buttonText)
+            .frame(width: 260, height: 50)
+            .background(.red)
+            .foregroundColor(.white)
+            .font(.title2)
+            .fontWeight(.bold)
+            .cornerRadius(10)
     }
 }
